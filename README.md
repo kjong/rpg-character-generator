@@ -1,5 +1,10 @@
 # rpg-character-generator
 
+## Character Number
+The attributes of the character are based on it's character number.
+
+The character number is a random 12 digit number generated using the input name as a seed. Sections of the character number are then used to roll each attribute.
+
 ## Attributes
 * Name
 
@@ -11,7 +16,7 @@
 
 * Intelligence (0 ~ 9)
 
-* Charisma
+* Charisma (0 ~ 9)
 
 * Weapon type
 

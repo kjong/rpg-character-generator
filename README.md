@@ -10,17 +10,20 @@ The character number is a random 12 digit number generated using the input name 
 
 * Surname
 
-* Strength (0 ~ 9)
-
-* Agility (0 ~ 9)
-
-* Intelligence (0 ~ 9)
-
-* Charisma (0 ~ 9)
-
-* Weapon type
+* Race
 
 * Cosmic force
 
 * Alignment
 
+* Strength (1 ~ 9)
+
+* Agility (1 ~ 9)
+
+* Intelligence (1 ~ 9)
+
+* Charisma (1 ~ 9)
+
+* Weapon
+
+* Utility item

@@ -5,8 +5,8 @@ import random
 # creates number to base character on
 def gen_char_num(in_name) -> int:
     random.seed(in_name)
-    # generate 12 digit char_num
-    return "%0.12d" % random.randint(0,999999999999)
+    # generate 16 digit char_num
+    return "%0.16d" % random.randint(0,9999999999999999)
 
 # gets portion of char_num from index i to j
 def slice_char_num(char_num, i, j) -> int:
@@ -35,26 +35,44 @@ def gen_char(in_name, char_num) -> dict:
     # surname (4 numbers)
     char_dict["surname"] = get_line_at_index("surnames.txt", char_num, 0, 4).capitalize()
 
-    # strength (1 number)
-    char_dict["strength"] = str(char_num)[4]
+    # race (2 numbers)
+    char_dict["race"] = get_line_at_index("races.txt", char_num, 4, 6).capitalize()
 
-    # agility (1 number)
-    char_dict["agility"] = str(char_num)[5]
-
-    # intelligence (1 number)
-    char_dict["intelligence"] = str(char_num)[6]
-
-    # charisma (1 number)
-    char_dict["charisma"] = str(char_num)[7]
-
-    # weapon type (2 numbers)
-    char_dict["weapon type"] = get_line_at_index("weapon_types.txt", char_num, 8, 10)
-
-    # cosmic force alignment (1 number)
-    char_dict["cosmic force"] = get_line_at_index("cosmic_forces.txt", char_num, 10, 10)
+    # cosmic force (1 number)
+    char_dict["cosmic force"] = get_line_at_index("cosmic_forces.txt", char_num, 6, 6)
 
     # alignment (1 number)
-    char_dict["alignment"] = get_line_at_index("alignment_chart.txt", char_num, 11, 11)
+    char_dict["alignment"] = get_line_at_index("alignment_chart.txt", char_num, 7, 7)
+
+    # strength (1 number)
+    if str(char_num)[8] == str(0):
+        char_dict["strength"] = str(1)
+    else:
+        char_dict["strength"] = str(char_num)[8]
+
+    # agility (1 number)
+    if str(char_num)[9] == str(0):
+        char_dict["agility"] = str(1)
+    else:
+        char_dict["agility"] = str(char_num)[9]
+
+    # intelligence (1 number)
+    if str(char_num)[10] == str(0):
+        char_dict["intelligence"] = str(1)
+    else:
+        char_dict["intelligence"] = str(char_num)[10]
+
+    # charisma (1 number)
+    if str(char_num)[11] == str(0):
+        char_dict["charisma"] = str(1)
+    else:
+        char_dict["charisma"] = str(char_num)[11]
+
+    # weapon type (2 numbers)
+    char_dict["weapon"] = get_line_at_index("weapons.txt", char_num, 12, 14)
+
+    # utility item (2 numbers)
+    char_dict["utility item"] = get_line_at_index("utility_items.txt", char_num, 14, 16)
 
     return char_dict
 

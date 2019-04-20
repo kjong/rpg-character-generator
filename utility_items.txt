@@ -1,0 +1,17 @@
+antivenom
+caltrops
+compass
+fishing rod
+garlic
+grappling hook
+hearthstone
+holy water
+lock pick
+medicinal herbs
+poison detection kit
+rope
+skeleton key
+smoke bomb
+soap
+sunstone
+vial of poison

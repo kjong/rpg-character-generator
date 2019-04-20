@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import random
+from collections import OrderedDict
 
 # creates number to base character on
 def gen_char_num(in_name) -> int:
@@ -26,8 +27,8 @@ def get_line_at_index(filename, char_num, i, j) -> str:
     return line
 
 # rolls character attributes based on char_num
-def gen_char(in_name, char_num) -> dict:
-    char_dict = {}
+def gen_char(in_name, char_num):
+    char_dict = OrderedDict()
 
     # name
     char_dict["name"] = in_name

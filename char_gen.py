@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import random
-from collections import OrderedDict
 
 # creates number to base character on
 def gen_char_num(in_name) -> int:
@@ -28,7 +27,7 @@ def get_line_at_index(filename, char_num, i, j) -> str:
 
 # rolls character attributes based on char_num
 def gen_char(in_name, char_num):
-    char_dict = OrderedDict()
+    char_dict = {}
 
     # name
     char_dict["name"] = in_name
@@ -40,10 +39,10 @@ def gen_char(in_name, char_num):
     char_dict["race"] = get_line_at_index("races.txt", char_num, 4, 6).capitalize()
 
     # cosmic force (1 number)
-    char_dict["cosmic force"] = get_line_at_index("cosmic_forces.txt", char_num, 6, 6)
+    char_dict["cosmic force"] = get_line_at_index("cosmic.txt", char_num, 6, 6)
 
     # alignment (1 number)
-    char_dict["alignment"] = get_line_at_index("alignment_chart.txt", char_num, 7, 7)
+    char_dict["alignment"] = get_line_at_index("alignment.txt", char_num, 7, 7)
 
     # strength (1 number)
     if str(char_num)[8] == str(0):
@@ -69,7 +68,7 @@ def gen_char(in_name, char_num):
     else:
         char_dict["charisma"] = str(char_num)[11]
 
-    # weapon type (2 numbers)
+    # weapon (2 numbers)
     char_dict["weapon"] = get_line_at_index("weapons.txt", char_num, 12, 14)
 
     # utility item (2 numbers)
@@ -80,11 +79,15 @@ def gen_char(in_name, char_num):
 # prints generated character
 def print_char(char_dict):
     print(char_dict.get("name") + " the " + char_dict.get("surname"))
-
-    new_dict = list(char_dict.items())
-    new_dict = dict(new_dict[2:])
-    for att in new_dict:
-        print("Your " + str(att) + " is: " + new_dict[att])
+    print("Race: " + char_dict.get("race"))
+    print("Cosmic force: " + char_dict.get("cosmic force"))
+    print("Alignment: " + char_dict.get("alignment"))
+    print("Strength: " + char_dict.get("strength"))
+    print("Agility: " + char_dict.get("agility"))
+    print("Intelligence: " + char_dict.get("intelligence"))
+    print("Charisma: " + char_dict.get("charisma"))
+    print("Weapon: " + char_dict.get("weapon"))
+    print("Utility item: " + char_dict.get("utility item"))
 
 # main
 def main():

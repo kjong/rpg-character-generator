@@ -2,18 +2,33 @@
 
 import random
 
+
 # creates number to base character on
 def gen_char_num(in_name) -> int:
     random.seed(in_name)
     # generate 16 digit char_num
-    return "%0.16d" % random.randint(0,9999999999999999)
+    return "%0.16d" % random.randint(0, 9999999999999999)
+
+
+# check if string contains all 0s
+def check_zero(string):
+    all_zero = True
+    for c in string:
+        if c != "0":
+            all_zero = False
+
+    return all_zero
+
 
 # gets portion of char_num from index i to j
 def slice_char_num(char_num, i, j) -> int:
     if i == j:
         return int(str(char_num[i]))
+    elif check_zero(str(char_num)[i:j]):
+        return 0
     else:
         return int((str(char_num)[i:j]).lstrip("0"))
+
 
 # gets line at index of file
 def get_line_at_index(filename, char_num, i, j) -> str:
@@ -25,6 +40,7 @@ def get_line_at_index(filename, char_num, i, j) -> str:
 
     return line
 
+
 # rolls character attributes based on char_num
 def gen_char(in_name, char_num):
     char_dict = {}
@@ -33,10 +49,12 @@ def gen_char(in_name, char_num):
     char_dict["name"] = in_name
 
     # surname (4 numbers)
-    char_dict["surname"] = get_line_at_index("surnames.txt", char_num, 0, 4).capitalize()
+    char_dict["surname"] = get_line_at_index(
+        "surnames.txt", char_num, 0, 4).capitalize()
 
     # race (2 numbers)
-    char_dict["race"] = get_line_at_index("races.txt", char_num, 4, 6).capitalize()
+    char_dict["race"] = get_line_at_index(
+        "races.txt", char_num, 4, 6).capitalize()
 
     # cosmic force (1 number)
     char_dict["cosmic force"] = get_line_at_index("cosmic.txt", char_num, 6, 6)
@@ -72,9 +90,11 @@ def gen_char(in_name, char_num):
     char_dict["weapon"] = get_line_at_index("weapons.txt", char_num, 12, 14)
 
     # utility item (2 numbers)
-    char_dict["utility item"] = get_line_at_index("utility.txt", char_num, 14, 16)
+    char_dict["utility item"] = get_line_at_index(
+        "utility.txt", char_num, 14, 16)
 
     return char_dict
+
 
 # prints generated character
 def print_char(char_dict):
@@ -89,6 +109,7 @@ def print_char(char_dict):
     print("Weapon: " + char_dict.get("weapon"))
     print("Utility item: " + char_dict.get("utility item"))
 
+
 # increments generated character count
 def increment():
     f = open("count.txt", "r+")
@@ -99,16 +120,18 @@ def increment():
 
     print("Generated " + str(count) + " characters")
 
+
 # main
 def main():
     print("Enter your name: ")
     in_name = input()
-    
-    char_num = gen_char_num(in_name.replace(" ", ""))    
+
+    char_num = gen_char_num(in_name.replace(" ", ""))
     char_dict = gen_char(in_name, char_num)
 
     print_char(char_dict)
     increment()
+
 
 if __name__ == "__main__":
     main()

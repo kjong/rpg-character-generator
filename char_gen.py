@@ -72,7 +72,7 @@ def gen_char(in_name, char_num):
     char_dict["weapon"] = get_line_at_index("weapons.txt", char_num, 12, 14)
 
     # utility item (2 numbers)
-    char_dict["utility item"] = get_line_at_index("utility_items.txt", char_num, 14, 16)
+    char_dict["utility item"] = get_line_at_index("utility.txt", char_num, 14, 16)
 
     return char_dict
 

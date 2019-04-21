@@ -89,6 +89,16 @@ def print_char(char_dict):
     print("Weapon: " + char_dict.get("weapon"))
     print("Utility item: " + char_dict.get("utility item"))
 
+# increments generated character count
+def increment():
+    f = open("count.txt", "r+")
+    count = int(f.readline()) + 1
+    f.seek(0)
+    f.write(str(count))
+    f.close()
+
+    print("Generated " + str(count) + " characters")
+
 # main
 def main():
     print("Enter your name: ")
@@ -97,7 +107,8 @@ def main():
     char_num = gen_char_num(in_name.replace(" ", ""))    
     char_dict = gen_char(in_name, char_num)
 
-    print_char(char_dict)    
+    print_char(char_dict)
+    increment()
 
 if __name__ == "__main__":
     main()

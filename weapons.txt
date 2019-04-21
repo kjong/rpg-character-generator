@@ -79,6 +79,7 @@ sling
 spear
 spoon
 staff
+Thunderfury, Blessed Blade of the Windseeker
 trench knife
 trench knife and shield
 trench knife and torch

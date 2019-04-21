@@ -13,5 +13,6 @@ rope
 skeleton key
 smoke bomb
 soap
+stool
 sunstone
 vial of poison

@@ -1,5 +1,7 @@
 # rpg-character-generator
 
+Reddit bot that uses this character generator: https://github.com/kjong/rpg-reddit-bot
+
 ## How It Works
 The user input is used as the seed for a randomly generated 16 digit number.
 The attributes of the character are based on this 16 digit "character number".
